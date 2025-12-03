@@ -12,7 +12,7 @@
 
 <x-layouts.header/>
 
-<x-layouts.nav/>
+
 
 <main class="bg-main h-main">
     {{$slot}}
