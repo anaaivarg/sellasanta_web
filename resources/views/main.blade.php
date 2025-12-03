@@ -1,34 +1,25 @@
 <x-layouts.layout>
-    @auth
-        <div class="card bg-base-100 image-full w-96 shadow-sm">
-            <figure>
-                <img src="{{ asset('/images/portada2.jpg') }}"
-                     alt="Logo"
-                     class="h-48 w-48 max-h-full object-cover" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-    @endauth
-    <div
-        class="hero h-full "
-        style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
-    >
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-neutral-content text-center">
-            <div class="max-w-md">
-                <h1 class="text-5xl font-bold ">Bienvenido</h1>
-                <p class="mb-5">
-                    Lleva el control escolar
-                </p>
-                <button class="btn btn-primary">Entrar</button>
-            </div>
+    <div class="relative h-80 w-full flex items-center justify-center overflow-hidden">
+        <!-- Imagen en blanco y negro -->
+        <img src="{{ asset('images/portada2.jpg') }}" class="absolute inset-0 w-full h-full object-cover filter grayscale" />
+
+        <!-- Overlay más intenso -->
+        <div class="absolute inset-0 bg-black/70"></div>
+
+        <!-- Contenido centrado -->
+        <div class="relative text-center text-neutral-content px-4">
+            <h1 class="mb-10 text-5xl font-bold">
+                Cofradía de Nuestra Señora de la Asunción<br> y Llegada de Jesús al Calvario
+            </h1>
+            <button class="btn text-xl bg-moradoprin text-white hover:text-orange-600 border-0 cursor-pointer p-4 focus:outline-none focus:ring-0">
+                Hazte hermano
+            </button>
+
         </div>
     </div>
+
+
+
+
 
 </x-layouts.layout>
