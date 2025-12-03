@@ -98,6 +98,79 @@
         </div>
     </section>
 
+    <section class="bg-gray-200 p-4 mt-5">
+        <h1 class="mb-6 font-bold text-moradoprin text-5xl">Nuestra historia</h1>
+        <div class="grid grid-cols-4 gap-4">
+            <!-- Tarjeta 1 -->
+            <div class="card bg-base-100 shadow-sm">
+                <figure>
+                    <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes" />
+                </figure>
+                <div class=" card-body bg-white text-black">
+                    <h2 class="card-title">Historia</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn-transparente">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card bg-base-100 shadow-sm">
+                <figure>
+                    <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes" />
+                </figure>
+                <div class="card-body bg-white text-black">
+                    <h2 class="card-title">Patrimonio</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn-transparente">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card bg-base-100 shadow-sm">
+                <figure>
+                    <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes" />
+                </figure>
+                <div class="card-body bg-white text-black">
+                    <h2 class="card-title">Seccion de instrumentos</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn-transparente">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="card bg-base-100 shadow-sm">
+                <figure>
+                    <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes" />
+                </figure>
+                <div class="card-body bg-white text-black">
+                    <h2 class="card-title">Virgen de la Asunción</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn-transparente">Leer más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    </section>
+
 
 
 

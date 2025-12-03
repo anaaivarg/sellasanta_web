@@ -1,21 +1,21 @@
 <x-layouts.layout>
-    <div class="bg-main h-full flex flex-row justify-center items-center">
+    <div class="bg-white h-full flex flex-row justify-center items-center p-20">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form class="bg-gray-200 p-5 rounded-xl" method="POST" action="{{ route('login') }}">
+    <form class="bg-moradoprin  p-5 rounded-xl" method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label class="text-white" for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label class="text-white" for="password" :value="__('Password')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -40,7 +40,7 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="bg-orange-400 hover:bg-orange-800 ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
