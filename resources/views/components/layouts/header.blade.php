@@ -36,7 +36,7 @@
         <li><a class="text-moradoprin hover:text-orange-600 font-bold">Item 2</a></li>
     </ul>
 </div>
-<a class="text-moradoprin hover:text-orange-600 bg-transparent border-0 p-0 cursor-pointer font-bold">Area privada</a>
+<a href="login"><button class="text-moradoprin hover:text-orange-600 bg-transparent border-0 p-0 cursor-pointer font-bold">Area privada</button></a>
 </div>
 </div>
 </div>

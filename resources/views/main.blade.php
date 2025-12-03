@@ -58,7 +58,7 @@
             </div>
 
             <!-- Zona de agenda: ocupa 3 columnas -->
-            <div class="col-span-3 bg-gray-300 rounded p-4 flex flex-col items-center">
+            <div class="col-span-3 bg-gray-200 rounded p-4 flex flex-col items-center">
                 <h2 class="text-moradoprin font-bold text-2xl mb-4">Agenda</h2>
                 <div class="flex items-center space-x-4">
                     <div class="bg-moradoprin text-white rounded-lg flex flex-col items-center justify-center w-16 h-16 text-center mb-3">
