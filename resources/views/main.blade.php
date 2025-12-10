@@ -3,10 +3,10 @@
         <!-- Imagen en blanco y negro -->
         <img src="{{ asset('images/portada2.jpg') }}" class="absolute inset-0 w-full h-full object-cover filter grayscale" />
 
-        <!-- Overlay más intenso -->
+
         <div class="absolute inset-0 bg-black/70"></div>
 
-        <!-- Contenido centrado -->
+
         <div class="relative text-center text-neutral-content px-4">
             <h1 class="mb-10 text-5xl font-bold">
                 Cofradía de Nuestra Señora de la Asunción<br> y Llegada de Jesús al Calvario
@@ -98,8 +98,8 @@
         </div>
     </section>
 
-    <section class="bg-gray-200 p-4 mt-5">
-        <h1 class="mb-6 font-bold text-moradoprin text-5xl">Nuestra historia</h1>
+    <section class="bg-gray-200 p-4 mt-10">
+        <h1 class="mb-6 font-bold text-moradoprin text-5xl">La cofradía</h1>
         <div class="grid grid-cols-4 gap-4">
             <!-- Tarjeta 1 -->
             <div class="card bg-base-100 shadow-sm">

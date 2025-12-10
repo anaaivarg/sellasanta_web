@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 Route::view('/', 'main');
+Route::view('/cofradia', 'cofradia')->name('cofradia');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
