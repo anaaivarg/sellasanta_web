@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 @plugin '@tailwindcss/forms';
 
 @plugin '@tailwindcss/forms';
@@ -27,6 +28,19 @@
         border-0 p-0 cursor-pointer focus:outline-none focus:ring-0;
     }
 
+    /* Personalización de table-zebra */
+    .table-zebra tbody tr:nth-child(even) {
+        background-color: rgba(34, 16, 59, 0.05) !important; /* moradoprin muy suave */
+    }
+
+    .table-zebra tbody tr:nth-child(even):hover {
+        background-color: rgba(34, 16, 59, 0.1) !important; /* un poco más oscuro al hover */
+    }
+
+    .table-zebra tbody tr:nth-child(odd):hover {
+        background-color: rgba(34, 16, 59, 0.08) !important;
+    }
+
     @theme {
         --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -36,6 +50,7 @@
         --color-main: #fefee3;
         --color-footer: #d68c45;
         --color-secundario: #4c956c;
+
 
         --height-header: 15vh;
         --height-nav: 10vh;
@@ -59,6 +74,14 @@
         ::file-selector-button {
             border-color: var(--color-gray-200, currentcolor);
         }
+         :root {
+        color-scheme: light;
+    }
+    
+    /* Forzar inputs con texto negro */
+    input, textarea, select {
+        color: #000000 !important;
+    }
     }
 
     /*

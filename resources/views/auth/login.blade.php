@@ -1,4 +1,4 @@
-<x-layouts.layout>
+<x-app-layout>
     <div class="bg-white h-full flex flex-row justify-center items-center p-20">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -46,4 +46,4 @@
         </div>
     </form>
     </div>
-</x-layouts.layout>
+</x-app-layout>

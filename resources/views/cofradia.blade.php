@@ -194,6 +194,69 @@
            </div>
 
        </div>
+        <div id="identidad" class="bg-white mt-8 pt-6">
+
+            <h1 class="text-moradoprin font-bold text-4xl text-center mb-8 mt-10">Identidad</h1>
+            <div class ="flex gap-4 p-4">
+                <div class="card bg-white text-black  shadow-sm">
+                    <figure>
+                        <img
+                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center font-bold">
+                            Emblema
+
+                        </h2>
+                        <hr class="bg-orange-600 h-0.5" />
+                        <p>El estandarte nuevo de la Cofradía se aprobó en 1998 y fue encargado a las Madres Concepcionistas ese mismo año,
+                            aunque no se entregó hasta el 2000. Su bendición reunió a numerosos cofrades emocionados por las palabras del
+                            Director Espiritual. El guión, de terciopelo morado y bordado en un estallido de colores e hilo de oro, destacó
+                            por su detalladísima elaboración.</p>
+
+                    </div>
+                </div>
+                <div class="card bg-white text-black  shadow-sm">
+                    <figure>
+                        <img
+                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center font-bold">
+                           Escudo
+
+                        </h2>
+                        <hr class="bg-orange-600 h-0.5" />
+                        <p>El estandarte nuevo de la Cofradía se aprobó en 1998 y fue encargado a las Madres Concepcionistas ese mismo año,
+                            aunque no se entregó hasta el 2000. Su bendición reunió a numerosos cofrades emocionados por las palabras del
+                            Director Espiritual. El guión, de terciopelo morado y bordado en un estallido de colores e hilo de oro, destacó
+                            por su detalladísima elaboración.</p>
+
+                    </div>
+                </div>
+                <div class="card bg-white text-black  shadow-sm">
+                    <figure>
+                        <img
+                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center font-bold w-96">
+                          Hábito
+                        </h2>
+                        <hr class="bg-orange-600 h-0.5" />
+                        <p>El estandarte luce flores bordadas en colores vivos y oro, con un trabajo minucioso que destaca
+                            en sus bordes y en la forma ondulada de la parte inferior, rematada con flecos y borlas.
+                            En la parte posterior lleva el nombre de la Cofradía y el lema “AÑO MARIANO 1954” como homenaje a la Inmaculada.
+                            Fue restaurado por completo en 2016 por Josefina Acerete y Gloria Carnicer.</p>
+
+                    </div>
+
+
+
+            </div>
 
 
     </div>

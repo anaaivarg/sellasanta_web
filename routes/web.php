@@ -2,13 +2,21 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuarioController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::view('/', 'main');
+Route::view('/', 'main')->name("main");
 Route::view('/cofradia', 'cofradia')->name('cofradia');
 
+Route::match(['get', 'post'], '/logout', function (Request $request) {
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect()->route('main');
+})->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -20,4 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+ require __DIR__.'/auth.php';
+Route::resource('usuarios', UsuarioController::class);
