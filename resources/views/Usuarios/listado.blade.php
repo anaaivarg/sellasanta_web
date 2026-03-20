@@ -73,7 +73,7 @@
                             class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-purple-600">
                         <label for="filtroSoloSeccion"
                             class="text-xs lg:text-sm font-semibold text-gray-700 cursor-pointer">
-                            Solo con Sección
+                            Sección de instrumentos
                         </label>
                     </div>
 

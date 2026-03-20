@@ -22,7 +22,7 @@
                     
                     <a href="{{ route('dashboard') }}" 
                        class="inline-block bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-700 transition-all">
-                        Volver al Dashboard
+                        Volver 
                     </a>
                 </div>
             @else
@@ -37,7 +37,7 @@
                     
                     <a href="{{ route('eventos.usuario') }}" 
                        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-700 transition-all">
-                        Volver al Calendario
+                        Volver
                     </a>
                 </div>
             @endif

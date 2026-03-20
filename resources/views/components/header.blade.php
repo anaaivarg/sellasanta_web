@@ -1,7 +1,9 @@
 <header class="bg-white flex items-center justify-between px-4 h-16 sticky top-0 z-50 shadow-sm">
     <!-- Logo (siempre visible) -->
     <div class="flex items-center">
-        <a href="/" class="text-lg font-bold text-moradoprin">LOGO</a>
+        <a href="{{ route('main') }}">
+            <img src="{{ asset('images/escudo.jpg') }}" alt="Escudo Cofradía" class="h-12 w-auto">
+        </a>
     </div>
 
     <!-- Botón Hamburguesa (solo móvil) -->
@@ -21,41 +23,31 @@
                 La Cofradía</div>
             <ul tabindex="-1" class="menu dropdown-content bg-white z-10 mt-6 w-52 p-2 shadow-sm">
                 <li><a href="{{ route('cofradia') }}#origen"
-                        class="text-moradoprin hover:text-orange-600 font-bold">Origen</a></li>
+                        class="text-moradoprin hover:text-orange-600 font-bold">Orígenes</a></li>
                 <li><a href="{{ route('cofradia') }}#estandartes"
                         class="text-moradoprin hover:text-orange-600 font-bold">Estandartes</a></li>
-                <li><a href="{{ route('cofradia') }}#emblema"
-                        class="text-moradoprin hover:text-orange-600 font-bold">Emblema y escudo</a></li>
+                <li><a href="{{ route('cofradia') }}#identidad"
+                        class="text-moradoprin hover:text-orange-600 font-bold">Identidad</a></li>
             </ul>
         </div>
 
         <!-- Noticias -->
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button"
-                class="text-moradoprin hover:text-orange-600 font-bold bg-transparent border-0 p-0 cursor-pointer">
-                Noticias</div>
-            <ul tabindex="-1" class="menu dropdown-content bg-white z-10 mt-6 w-52 p-2 shadow-sm">
-                <li><a class="text-moradoprin hover:text-orange-600 font-bold">Item 1</a></li>
-                <li><a class="text-moradoprin hover:text-orange-600 font-bold">Item 2</a></li>
-            </ul>
-        </div>
+        <a href="{{ route('noticias') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Noticias</a>
 
         <!-- Semana Santa -->
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button"
-                class="text-moradoprin hover:text-orange-600 font-bold bg-transparent border-0 p-0 cursor-pointer">
-                Semana Santa</div>
-            <ul tabindex="-1" class="menu dropdown-content bg-white z-10 mt-6 w-52 p-2 shadow-sm">
-                <li><a class="text-moradoprin hover:text-orange-600 font-bold">Item 1</a></li>
-                <li><a class="text-moradoprin hover:text-orange-600 font-bold">Item 2</a></li>
-            </ul>
-        </div>
+        <a href="{{ route('semanasanta') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Semana Santa</a>
+
+        <!-- Contacto -->
+        <a href="{{ route('contacto') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Contacto</a>
 
         <!-- Área Privada / Salir -->
         @auth
             <a href="{{ route('dashboard') }}"
                class="text-moradoprin hover:text-orange-600 font-bold">
-                Dashboard
+                Area privada
             </a>
             <form method="POST" action="{{ route('logout') }}" class="inline">
                 @csrf
@@ -105,40 +97,22 @@
                    class="block text-gray-600 hover:text-orange-600">Origen</a>
                 <a href="{{ route('cofradia') }}#estandartes"
                    class="block text-gray-600 hover:text-orange-600">Estandartes</a>
-                <a href="{{ route('cofradia') }}#emblema"
+                <a href="{{ route('cofradia') }}#identidad"
                    class="block text-gray-600 hover:text-orange-600">Emblema y escudo</a>
             </div>
         </div>
 
         <!-- Noticias -->
-        <div>
-            <button onclick="toggleSubmenu('noticias')" 
-                    class="w-full text-left text-moradoprin hover:text-orange-600 font-bold flex justify-between items-center">
-                Noticias
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </button>
-            <div id="submenu-noticias" class="hidden pl-4 mt-2 space-y-2">
-                <a href="#" class="block text-gray-600 hover:text-orange-600">Item 1</a>
-                <a href="#" class="block text-gray-600 hover:text-orange-600">Item 2</a>
-            </div>
-        </div>
+        <a href="{{ route('noticias') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Noticias</a>
 
         <!-- Semana Santa -->
-        <div>
-            <button onclick="toggleSubmenu('semana')" 
-                    class="w-full text-left text-moradoprin hover:text-orange-600 font-bold flex justify-between items-center">
-                Semana Santa
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </button>
-            <div id="submenu-semana" class="hidden pl-4 mt-2 space-y-2">
-                <a href="#" class="block text-gray-600 hover:text-orange-600">Item 1</a>
-                <a href="#" class="block text-gray-600 hover:text-orange-600">Item 2</a>
-            </div>
-        </div>
+        <a href="{{ route('semanasanta') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Semana Santa</a>
+
+        <!-- Contacto -->
+        <a href="{{ route('contacto') }}"
+            class="text-moradoprin hover:text-orange-600 font-bold">Contacto</a>
 
         <!-- Salir (solo si está logueado) -->
         @auth

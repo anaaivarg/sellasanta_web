@@ -1,4 +1,4 @@
-<footer class="footer footer-horizontal footer-center bg-moradoprin text-base-content rounded p-10">
+<footer class="footer footer-horizontal footer-center bg-moradoprin text-white rounded p-10">
     <nav class="grid grid-flow-col gap-4">
         <a class="link link-hover">About us</a>
         <a class="link link-hover">Contact</a>
@@ -43,6 +43,6 @@
         </div>
     </nav>
     <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © {{ date('Y') }} - Cofradía de Nuestra Señora de la Asunción</p>
     </aside>
 </footer>

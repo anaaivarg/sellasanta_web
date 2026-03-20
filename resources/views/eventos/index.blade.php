@@ -20,6 +20,10 @@
                         <span class="text-black">Ensayo</span>
                     </div>
                     <div class="flex items-center gap-1 lg:gap-2">
+                        <span class="w-2 h-2 lg:w-3 lg:h-3 rounded bg-yellow-500"></span>
+                        <span class="text-black">Ensayo General</span>
+                    </div>
+                    <div class="flex items-center gap-1 lg:gap-2">
                         <span class="w-2 h-2 lg:w-3 lg:h-3 rounded bg-purple-700"></span>
                         <span class="text-black">Misa</span>
                     </div>
@@ -57,21 +61,22 @@
         </div>
     </div>
 
-  <!-- Botón Volver Flotante -->
-<a href="{{ route('dashboard') }}"
-    class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-[60]">
-    <i class="fa-solid fa-arrow-left text-xl"></i>
-</a>
+    <!-- Botón Volver Flotante -->
+    <a href="{{ route('dashboard') }}"
+        class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-[60]">
+        <i class="fa-solid fa-arrow-left text-xl"></i>
+    </a>
 
-<!-- Botón Crear Evento Flotante (solo móvil) -->
-<button onclick="abrirModalCrear(new Date().toISOString().split('T')[0])"
-    class="lg:hidden fixed bottom-6 right-6 bg-orange-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-700 transition-all z-[60]">
-    <i class="fa-solid fa-plus text-2xl"></i>
-</button>
+    <!-- Botón Crear Evento Flotante (solo móvil) -->
+    <button onclick="abrirModalCrear(new Date().toISOString().split('T')[0])"
+        class="lg:hidden fixed bottom-6 right-6 bg-orange-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-700 transition-all z-[60]">
+        <i class="fa-solid fa-plus text-2xl"></i>
+    </button>
 
     <!-- Modal para crear/editar evento -->
     <div id="eventoModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-4 lg:p-8 border w-11/12 max-w-sm lg:max-w-md shadow-2xl rounded-2xl bg-white">
+        <div
+            class="relative top-20 mx-auto p-4 lg:p-8 border w-11/12 max-w-sm lg:max-w-md shadow-2xl rounded-2xl bg-white">
             <div class="flex justify-between items-center mb-4 lg:mb-6">
                 <h3 class="text-lg lg:text-2xl font-bold text-gray-900" id="modalTitle">Crear Evento</h3>
                 <button onclick="cerrarModal()" class="text-gray-400 hover:text-gray-600 text-xl lg:text-2xl">
@@ -117,6 +122,15 @@
                         <option value="General">General</option>
                     </select>
                 </div>
+                <div>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" id="general" name="general" disabled
+                            class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span class="ml-2 text-gray-700 font-semibold text-sm opacity-50" id="labelGeneral">
+                            <i class="fa-solid fa-users"></i> Ensayo general
+                        </span>
+                    </label>
+                </div>
 
                 <div>
                     <label for="descripcion" class="block text-gray-700 font-semibold mb-1 text-sm">
@@ -127,15 +141,7 @@
                         placeholder="Descripción del evento (opcional)"></textarea>
                 </div>
 
-                <div>
-                    <label class="flex items-center cursor-pointer">
-                        <input type="checkbox" id="general" name="general"
-                            class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
-                        <span class="ml-2 text-gray-700 font-semibold text-sm">
-                            <i class="fa-solid fa-users"></i> Evento general
-                        </span>
-                    </label>
-                </div>
+
 
                 <div class="flex flex-col lg:flex-row gap-2 lg:gap-3">
                     <button type="button" onclick="cerrarModal()"
@@ -168,6 +174,21 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
+            const tipoSelect = document.getElementById('tipo');
+            const generalCheckbox = document.getElementById('general');
+            const labelGeneral = document.getElementById('labelGeneral');
+
+            // Control del checkbox "Ensayo general"
+            tipoSelect.addEventListener('change', function () {
+                if (this.value === 'Ensayo') {
+                    generalCheckbox.disabled = false;
+                    labelGeneral.classList.remove('opacity-50');
+                } else {
+                    generalCheckbox.disabled = true;
+                    generalCheckbox.checked = false;
+                    labelGeneral.classList.add('opacity-50');
+                }
+            });
 
             // Solo inicializar calendario en desktop
             if (window.innerWidth >= 1024) {
@@ -176,23 +197,44 @@
                     locale: 'es',
                     firstDay: 1,
                     headerToolbar: {
-                        left: 'prev,next',
+                      right: 'prev,next',
                         center: 'title',
-                        right: 'today'
+                        left: 'today'
                     },
                     buttonText: {
                         today: 'Hoy'
+                         
                     },
                     height: 'auto',
                     events: '/eventos/data',
                     eventContent: function (arg) {
                         let hora = arg.event.extendedProps.hora;
                         let title = arg.event.title;
+                        let descripcion = arg.event.extendedProps.descripcion;
+                        let general = arg.event.extendedProps.general;
+
+                        // Construir el HTML del evento
+                        let html = '<div class="fc-content p-1">';
+
+                        // Línea principal: hora + tipo de evento + estrella si es general
+                        html += `<div class="font-semibold">`;
                         if (hora) {
-                            return {
-                                html: `<div class="fc-content"><b>${hora.substring(0, 5)}</b> - ${title}</div>`
-                            };
+                            html += `<span class="text-xs">${hora.substring(0, 5)}</span> - `;
                         }
+                        html += `<span>${title}</span>`;
+                        if (general === 'SI') {
+                            html += ` <span class="text-yellow-600">★</span>`;
+                        }
+                        html += `</div>`;
+
+                        // Descripción (si existe)
+                        if (descripcion) {
+                            html += `<div class="text-xs opacity-75 mt-0.5 truncate">${descripcion}</div>`;
+                        }
+
+                        html += '</div>';
+
+                        return { html: html };
                     },
                     dateClick: function (info) {
                         abrirModalCrear(info.dateStr);
@@ -207,16 +249,17 @@
                 });
                 calendar.render();
             }
+        
 
             // Cargar lista de eventos para móvil
             if (window.innerWidth < 1024) {
-                cargarListaEventos();
-            }
+            cargarListaEventos();
+        }
 
-            document.getElementById('eventoForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                guardarEvento();
-            });
+        document.getElementById('eventoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            guardarEvento();
+        });
         });
 
         function cargarListaEventos() {
@@ -227,7 +270,7 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    document.getElementById('eventos-lista').innerHTML = 
+                    document.getElementById('eventos-lista').innerHTML =
                         '<p class="text-center text-red-500 py-8">Error al cargar eventos</p>';
                 });
         }
@@ -236,7 +279,7 @@
             const lista = document.getElementById('eventos-lista');
             const hoy = new Date();
             hoy.setHours(0, 0, 0, 0);
-            
+
             const eventosFuturos = eventos
                 .filter(e => new Date(e.start) >= hoy)
                 .sort((a, b) => new Date(a.start) - new Date(b.start))
@@ -249,6 +292,7 @@
 
             const colores = {
                 'Ensayo': 'border-orange-600',
+                'Ensayo_General': 'border-yellow-500',
                 'Misa': 'border-purple-700',
                 'Procesión': 'border-red-600',
                 'Reunión': 'border-blue-600',
@@ -256,29 +300,40 @@
                 'General': 'border-gray-600'
             };
 
-            lista.innerHTML = eventosFuturos.map(evento => `
-                <div onclick='abrirModalEditarMovil(${JSON.stringify(evento).replace(/'/g, "&apos;")})' 
-                     class="bg-white border-l-4 ${colores[evento.extendedProps.tipo] || 'border-gray-400'} p-3 rounded-lg shadow hover:shadow-md transition-shadow cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-gray-900 text-sm">${evento.title}</h3>
-                            <p class="text-xs text-gray-600 mt-1">
-                                <i class="fa-solid fa-calendar"></i> 
-                                ${new Date(evento.start).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                            </p>
-                            ${evento.extendedProps.hora ? `
-                                <p class="text-xs text-gray-600">
-                                    <i class="fa-solid fa-clock"></i> ${evento.extendedProps.hora.substring(0, 5)}
+            lista.innerHTML = eventosFuturos.map(evento => {
+                // Determinar el tipo de color según si es ensayo general
+                let tipoColor = evento.extendedProps.tipo;
+                if (evento.extendedProps.tipo === 'Ensayo' && evento.extendedProps.general === 'SI') {
+                    tipoColor = 'Ensayo_General';
+                }
+
+                return `
+                    <div onclick='abrirModalEditarMovil(${JSON.stringify(evento).replace(/'/g, "&apos;")})' 
+                         class="bg-white border-l-4 ${colores[tipoColor] || 'border-gray-400'} p-3 rounded-lg shadow hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 text-sm">
+                                    ${evento.title}
+                                    ${evento.extendedProps.general === 'SI' ? '<span class="text-yellow-600 ml-1"><i class="fa-solid fa-star"></i></span>' : ''}
+                                </h3>
+                                <p class="text-xs text-gray-600 mt-1">
+                                    <i class="fa-solid fa-calendar"></i> 
+                                    ${new Date(evento.start).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                                 </p>
-                            ` : ''}
-                            ${evento.extendedProps.descripcion ? `
-                                <p class="text-xs text-gray-500 mt-1">${evento.extendedProps.descripcion}</p>
-                            ` : ''}
+                                ${evento.extendedProps.hora ? `
+                                    <p class="text-xs text-gray-600">
+                                        <i class="fa-solid fa-clock"></i> ${evento.extendedProps.hora.substring(0, 5)}
+                                    </p>
+                                ` : ''}
+                                ${evento.extendedProps.descripcion ? `
+                                    <p class="text-xs text-gray-500 mt-1">${evento.extendedProps.descripcion}</p>
+                                ` : ''}
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-gray-400"></i>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-gray-400"></i>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function abrirModalEditarMovil(evento) {
@@ -297,6 +352,11 @@
             document.getElementById('eventoForm').reset();
             document.getElementById('fecha').value = fecha;
             document.getElementById('btnEliminar').classList.add('hidden');
+
+            // Resetear el estado del checkbox
+            document.getElementById('general').disabled = true;
+            document.getElementById('labelGeneral').classList.add('opacity-50');
+
             document.getElementById('eventoModal').classList.remove('hidden');
         }
 
@@ -304,11 +364,21 @@
             eventoSeleccionado = evento;
             document.getElementById('modalTitle').textContent = 'Editar Evento';
             document.getElementById('eventoId').value = evento.id;
-            document.getElementById('fecha').value = evento.startStr;
-            document.getElementById('hora').value = evento.extendedProps.hora || '';
+            document.getElementById('fecha').value = evento.startStr.substring(0, 10);
+            document.getElementById('hora').value = (evento.extendedProps.hora || '').substring(0, 5);
             document.getElementById('tipo').value = evento.extendedProps.tipo;
             document.getElementById('descripcion').value = evento.extendedProps.descripcion || '';
             document.getElementById('general').checked = evento.extendedProps.general === 'SI';
+
+            // Habilitar checkbox si es tipo Ensayo
+            if (evento.extendedProps.tipo === 'Ensayo') {
+                document.getElementById('general').disabled = false;
+                document.getElementById('labelGeneral').classList.remove('opacity-50');
+            } else {
+                document.getElementById('general').disabled = true;
+                document.getElementById('labelGeneral').classList.add('opacity-50');
+            }
+
             document.getElementById('btnEliminar').classList.remove('hidden');
             document.getElementById('eventoModal').classList.remove('hidden');
         }

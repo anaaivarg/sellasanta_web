@@ -10,6 +10,9 @@ use App\Http\Controllers\EventoController;
 
 Route::view('/', 'main')->name("main");
 Route::view('/cofradia', 'cofradia')->name('cofradia');
+Route::view('/noticias', 'noticias')->name('noticias');
+Route::view('/semana-santa', 'semanasanta')->name('semanasanta');
+Route::view('/contacto', 'contacto')->name('contacto');
 
 Route::match(['get', 'post'], '/logout', function (Request $request) {
     Auth::logout();

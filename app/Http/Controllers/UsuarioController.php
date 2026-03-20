@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Instrumento;
 use App\Models\Usuario;
 use App\Models\Gobierno;
@@ -11,7 +10,6 @@ use App\Models\Evento;
 use App\Http\Requests\StoreUsuarioRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use App\Http\Requests\UpdateUsuarioRequest;
 use Illuminate\Support\Facades\Schema;
 
@@ -34,11 +32,9 @@ class UsuarioController extends Controller
     public function create()
     {
         // Obtener los datos necesarios para los select del formulario
-        $instrumentos = \App\Models\Instrumento::all();
-        $gobiernos = \App\Models\Gobierno::all();
-        $atributos = \App\Models\Atributo::all();
-
-
+        $instrumentos = Instrumento::all();
+        $gobiernos = Gobierno::all();
+        $atributos = Atributo::all();
 
         // Retornar la vista con los datos
         return view('usuarios.create', compact('instrumentos', 'gobiernos', 'atributos'));
@@ -47,34 +43,43 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUsuarioRequest $request)
+    public function store(Request $request)
     {
-
         // Validar los datos del formulario
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
             'direccion' => 'nullable|string|max:255',
-            'dni' => 'required|string|max:20|unique:usuarios,dni',
+            'dni' => 'required|string|max:20|unique:usuarios,Dni',
             'fechaNacimiento' => 'nullable|date',
             'email' => 'required|email|unique:usuarios,email',
             'telefono' => 'nullable|string|max:20',
-            'usuario' => 'required|string|max:50|unique:usuarios,usuario',
+            'usuario' => 'required|string|max:50|unique:usuarios,Usuario',
             'password' => 'required|string|min:6',
+            'participa' => 'nullable|boolean',
             'seccion' => 'nullable|integer',
             'junta' => 'nullable|integer',
             'atributo' => 'nullable|integer',
         ]);
 
-        // Encriptar la contraseña
-        $validated['password'] = bcrypt($validated['password']);
-
-        // Establecer valores por defecto
-        $validated['activo'] = 1;
-        $validated['fechaAlta'] = now();
-
-        // Crear el usuario
-        $usuario = \App\Models\Usuario::create($validated);
+        // Crear el usuario con los nombres de columna correctos
+        Usuario::create([
+            'name' => $validated['name'],
+            'Apellidos' => $validated['apellidos'],
+            'Direccion' => $validated['direccion'] ?? null,
+            'Dni' => $validated['dni'],
+            'FechaNacimiento' => $validated['fechaNacimiento'] ?? null,
+            'FechaAlta' => now(),
+            'email' => $validated['email'],
+            'Telefono' => $validated['telefono'] ?? null,
+            'Usuario' => $validated['usuario'],
+            'password' => bcrypt($validated['password']),
+            'Activo' => 'SI',
+            'Participante' => $request->has('participa') ? 'SI' : 'NO',
+            'Seccion' => $validated['seccion'] ?? 1,
+            'Junta' => $validated['junta'] ?? 1,
+            'Atributo' => $validated['atributo'] ?? 1,
+        ]);
 
         // Redirigir con mensaje de éxito
         return redirect()->route('usuarios.index')
@@ -125,7 +130,7 @@ class UsuarioController extends Controller
             'fecha_nacimiento' => 'required|date',
             'fecha_alta' => 'required|date',
             'email' => 'required|email|max:255',
-            'telefono' => 'required|string|max:20',
+            'telefono' => 'required|string|max:9',
             'usuario' => 'required|string|max:255',
             'password' => 'nullable|string|min:6',
             'activo' => 'required|in:SI,NO',
@@ -156,10 +161,7 @@ class UsuarioController extends Controller
         // Solo actualizar contraseña si se proporcionó una nueva
         if ($request->filled('password')) {
             $usuario->password = bcrypt($request->password);
-
         }
-
-
 
         $usuario->save();
 
@@ -188,22 +190,19 @@ class UsuarioController extends Controller
     }
 
     public function activar(Usuario $usuario)
-{
-    try {
-        $nombre = $usuario->name . ' ' . $usuario->Apellidos;
-        
-        $usuario->Activo = 'SI';
-        $usuario->save();
-        
-        return redirect()->route('usuarios.index')
-            ->with('success', "Cofrade {$nombre} activado correctamente");
+    {
+        try {
+            $nombre = $usuario->name . ' ' . $usuario->Apellidos;
             
-    } catch (\Exception $e) {
-        return redirect()->route('usuarios.index')
-            ->with('error', 'Error al activar el cofrade');
+            $usuario->Activo = 'SI';
+            $usuario->save();
+            
+            return redirect()->route('usuarios.index')
+                ->with('success', "Cofrade {$nombre} activado correctamente");
+                
+        } catch (\Exception $e) {
+            return redirect()->route('usuarios.index')
+                ->with('error', 'Error al activar el cofrade');
+        }
     }
-}
-
-
-
 }

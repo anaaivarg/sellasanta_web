@@ -130,7 +130,7 @@
                 <!-- Tarjetas para TODOS los usuarios -->
 
                 <!-- ✅ Mis Estadísticas (solo usuarios con sección) -->
-                @if(auth()->user()->Seccion && auth()->user()->Participante === 'SI')
+                @if(auth()->user()->Seccion && auth()->user()->Seccion != 1)
                     <a href="{{ route('mis.estadisticas') }}"
                         class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
                         <div class="p-4 lg:p-6">
@@ -145,6 +145,7 @@
                     </a>
                 @endif
 
+                @if(auth()->user()->Seccion && auth()->user()->Seccion != 1)
                 <a href="{{ route('eventos.usuario') }}"
                     class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
                     <div class="p-4 lg:p-6">
@@ -157,6 +158,7 @@
                         <p class="text-gray-600 text-sm lg:text-base">Consulta eventos y genera tu QR</p>
                     </div>
                 </a>
+                @endif
 
                 <a href="{{ route('profile.edit') }}"
                     class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">

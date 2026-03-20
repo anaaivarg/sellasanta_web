@@ -137,31 +137,33 @@ public function calendarioUsuario()
     /**
      * Obtener eventos en formato JSON para FullCalendar
      */
-    public function getEventos()
-    {
-        try {
-            $eventos = Evento::all()->map(function ($evento) {
-                return [
-                    'id' => $evento->idEvento,
-                    'title' => $evento->Nombre ?? 'Sin título',
-                    'start' => $evento->Fecha,
-                    'backgroundColor' => $this->getColorPorTipo($evento->Nombre),
-                    'borderColor' => $this->getColorPorTipo($evento->Nombre),
-                    'extendedProps' => [
-                        'tipo' => $evento->Nombre,
-                        'hora' => $evento->hora,         
-                        'descripcion' => $evento->descripcion, 
-                        'general' => $evento->General
-                    ]
-                ];
-            });
+   public function getEventos()
+{
+    try {
+        $eventos = Evento::all()->map(function ($evento) {
+            // ✅ PASAR EL PARÁMETRO $general AL MÉTODO
+            $color = $this->getColorPorTipo($evento->Nombre, $evento->General);
+            
+            return [
+                'id' => $evento->idEvento,
+                'title' => $evento->Nombre ?? 'Sin título',
+                'start' => $evento->Fecha,
+                'backgroundColor' => $color,
+                'borderColor' => $color,
+                'extendedProps' => [
+                    'tipo' => $evento->Nombre,
+                    'hora' => $evento->hora,         
+                    'descripcion' => $evento->descripcion, 
+                    'general' => $evento->General
+                ]
+            ];
+        });
 
-            return response()->json($eventos);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        return response()->json($eventos);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
     }
-
+}
     /**
      * Guardar nuevo evento
      */
@@ -258,17 +260,23 @@ public function calendarioUsuario()
     /**
      * Obtener colores según tipo de evento
      */
-    private function getColorPorTipo($tipo)
-    {
-        $colores = [
-            'Ensayo' => '#ea580c',      // Naranja
-            'Misa' => '#7c3aed',        // Morado
-            'Procesión' => '#dc2626',   // Rojo
-            'Reunión' => '#2563eb',     // Azul
-            'Acto' => '#16a34a',        // Verde
-            'General' => '#64748b'      // Gris
-        ];
+   private function getColorPorTipo($tipo, $general = 'NO')
+{
 
-        return $colores[$tipo] ?? '#64748b';
+    
+    // Si es un ensayo general, cambiar a amarillo
+    if ($tipo === 'Ensayo' && $general === 'SI') {
+        return '#9a3c09ff'; // amarillo (yellow-500)
     }
+    
+    $colores = [
+        'Ensayo' => '#ea580c',      // Naranja
+        'Misa' => '#cc0accff',        // Morado
+        'Procesión' => '#43066eff',   // Rojo
+        'Reunión' => '#2563eb',     // Azul
+        'Acto' => '#16a34a',        // Verde
+    ];
+
+    return $colores[$tipo] ?? '#64748b';
+}
 }

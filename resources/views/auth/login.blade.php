@@ -54,7 +54,7 @@
                 <!-- Botones -->
                 <div class="flex flex-col lg:flex-row items-center justify-between mt-6 gap-4">
                     @if (Route::has('password.request'))
-                        <a class="text-sm text-white hover:text-orange-300 underline transition-colors" 
+                        <a class="text-sm text-white hover:text-orange-600 underline transition-colors" 
                            href="{{ route('password.request') }}">
                             {{ __('¿Olvidaste tu contraseña?') }}
                         </a>

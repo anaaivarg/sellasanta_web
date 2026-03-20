@@ -78,21 +78,21 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-1">
                         <i class="fa-solid fa-tag"></i> Tipo
                     </label>
-                    <p id="modalTipo" class="px-3 py-2 bg-gray-50 rounded-lg text-sm"></p>
+                    <p id="modalTipo" class="px-3 py-2 bg-gray-50 rounded-lg text-sm text-gray-800"></p>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">
                         <i class="fa-solid fa-calendar"></i> Fecha
                     </label>
-                    <p id="modalFecha" class="px-3 py-2 bg-gray-50 rounded-lg text-sm"></p>
+                    <p id="modalFecha" class="px-3 py-2 bg-gray-50 rounded-lg text-sm text-gray-800"></p>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">
                         <i class="fa-solid fa-clock"></i> Hora
                     </label>
-                    <p id="modalHora" class="px-3 py-2 bg-gray-50 rounded-lg text-sm"></p>
+                    <p id="modalHora" class="px-3 py-2 bg-gray-50 rounded-lg text-sm text-gray-800"></p>
                 </div>
 
                 <div id="modalDescripcionContainer" class="hidden">
