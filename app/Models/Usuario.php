@@ -2,63 +2,102 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UsuarioFactory> */
-    use HasFactory;
+    use HasFactory, Notifiable;
 
-    // Nombre de la tabla (opcional si sigue la convención)
     protected $table = 'usuarios';
-
-    // Indicar cuál es la primary key
     protected $primaryKey = 'idUsuario';
-
-    // Si la primary key es autoincremental
     public $incrementing = true;
-
-    // Tipo de la primary key
     protected $keyType = 'int';
-
     public $timestamps = false;
 
     protected $fillable = [
         'name',
-        'apellidos',
-        'direccion',
-        'dni',
-        'fechaNacimiento',
-        'fechaAlta',
+        'Apellidos',
+        'Direccion',
+        'Dni',
+        'FechaNacimiento',
+        'FechaAlta',
         'email',
-        'telefono',
-        'usuario',
+        'Telefono',
+        'Usuario',
         'password',
-        'activo',
-        'seccion',
-        'junta',
-        'atributo'
+        'Activo',
+        'Seccion',
+        'Junta',
+        'Atributo'
     ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    // ✅ Castear Junta como integer
+    protected $casts = [
+        'Junta' => 'integer',
+        'Seccion' => 'integer',
+        'Atributo' => 'integer',
+
+        'Telefono' => 'string',
+    ];
+
+
 
     public function getRouteKeyName()
     {
         return 'idUsuario';
     }
 
-     public function seccion()
+    public function seccion()
     {
-        return $this->belongsTo(Instrumento::class, 'Seccion');
+        return $this->belongsTo(Instrumento::class, 'Seccion', 'idInstrumento');
     }
 
     public function junta()
     {
-        return $this->belongsTo(Gobierno::class, 'Junta');
+        return $this->belongsTo(Gobierno::class, 'Junta', 'idJunta');
     }
 
     public function atributo()
     {
-        return $this->belongsTo(Atributo::class, 'Atributo');
+        return $this->belongsTo(Atributo::class, 'Atributo', 'idAtributo');
     }
+
+    public function esAdmin()
+    {
+        $cargosAdmin = [2, 4, 13];
+        return $this->Junta !== null && in_array($this->Junta, $cargosAdmin, true);
+    }
+
+    // Accessors y Mutators para Activo
+public function getActivoAttribute($value)
+{
+    // Si ya es SI/NO, devolverlo tal cual
+    if ($value === 'SI' || $value === 'NO') {
+        return $value;
+    }
+    // Si es numérico, convertir
+    return ($value == 1 || $value === true) ? 'SI' : 'NO';
+}
+
+
+
+// Accessors y Mutators para Participante
+public function getParticipanteAttribute($value)
+{
+    // Si ya es SI/NO, devolverlo tal cual
+    if ($value === 'SI' || $value === 'NO') {
+        return $value;
+    }
+    // Si es numérico, convertir
+    return ($value == 1 || $value === true) ? 'SI' : 'NO';
+}
+
+
 }

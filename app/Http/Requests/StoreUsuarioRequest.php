@@ -30,7 +30,7 @@ class StoreUsuarioRequest extends FormRequest
             'email' => 'required|email|unique:usuarios,email',
             'telefono' => 'nullable|string|max:20',
             'usuario' => 'required|string|max:50|unique:usuarios,usuario',
-            'pass' => 'required|string|min:6',
+            'password' => 'required|string|min:6',
             'seccion' => 'nullable|integer',
             'junta' => 'nullable|integer',
             'atributo' => 'nullable|integer',

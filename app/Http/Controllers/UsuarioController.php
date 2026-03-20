@@ -7,8 +7,10 @@ use App\Models\Instrumento;
 use App\Models\Usuario;
 use App\Models\Gobierno;
 use App\Models\Atributo;
+use App\Models\Evento;
 use App\Http\Requests\StoreUsuarioRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests\UpdateUsuarioRequest;
 use Illuminate\Support\Facades\Schema;
@@ -103,6 +105,18 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
+        // Validar letra del DNI PRIMERO
+        $dni = strtoupper($request->dni);
+        $numero = substr($dni, 0, 8);
+        $letra = substr($dni, -1);
+        $letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+        $letraCorrecta = $letras[$numero % 23];
+
+        if ($letra !== $letraCorrecta) {
+            return back()->withErrors(['dni' => 'La letra del DNI no es correcta'])->withInput();
+        }
+
+        // AHORA SÍ validar el resto
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
@@ -116,27 +130,12 @@ class UsuarioController extends Controller
             'password' => 'nullable|string|min:6',
             'activo' => 'required|in:SI,NO',
             'participante' => 'required|in:SI,NO',
-            'Seccion' => 'nullable|integer',
-            'junta' => 'nullable|integer',
-            'atributo' => 'nullable|integer',
-        ], [
-            'nombre.required' => 'El nombre es obligatorio',
-            'apellido.required' => 'Los apellidos son obligatorios',
-            'dni.required' => 'El DNI es obligatorio',
-            'dni.regex' => 'El DNI debe tener 8 números y una letra (ej: 12345678A)',
-            'direccion.required' => 'La dirección es obligatoria',
-            'fecha_nacimiento.required' => 'La fecha de nacimiento es obligatoria',
-            'fecha_nacimiento.before' => 'La fecha de nacimiento debe ser anterior a hoy',
-            'fecha_alta.required' => 'La fecha de alta es obligatoria',
-            'email.required' => 'El email es obligatorio',
-            'email.email' => 'El email no es válido',
-            'telefono.required' => 'El teléfono es obligatorio',
-            'telefono.regex' => 'El teléfono debe tener 9 dígitos',
-            'usuario.required' => 'El usuario es obligatorio',
-            'usuario.unique' => 'Este usuario ya existe',
-            'password.min' => 'La contraseña debe tener al menos 6 caracteres',
+            'Seccion' => 'nullable',
+            'junta' => 'nullable',
+            'atributo' => 'nullable',
         ]);
 
+        // Asignar valores
         $usuario->name = $request->nombre;
         $usuario->Apellidos = $request->apellido;
         $usuario->Dni = $request->dni;
@@ -148,24 +147,19 @@ class UsuarioController extends Controller
         $usuario->Usuario = $request->usuario;
         $usuario->Activo = $request->activo;
         $usuario->Participante = $request->participante;
-        $usuario->Seccion = $request->Seccion;
-        $usuario->Junta = $request->junta;
-        $usuario->Atributo = $request->atributo;
 
-        // Validar letra del DNI
-        $dni = strtoupper($request->dni);
-        $numero = substr($dni, 0, 8);
-        $letra = substr($dni, -1);
-        $letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
-        $letraCorrecta = $letras[$numero % 23];
+        // Convertir strings vacíos a 1 (ID de "Ninguno")
+        $usuario->Seccion = $request->Seccion ?: 1;
+        $usuario->Junta = $request->junta ?: 1;
+        $usuario->Atributo = $request->atributo ?: 1;
 
-        if ($letra !== $letraCorrecta) {
-            return back()->withErrors(['dni' => 'La letra del DNI no es correcta'])->withInput();
-        }
         // Solo actualizar contraseña si se proporcionó una nueva
         if ($request->filled('password')) {
-            $usuario->Pass = bcrypt($request->password);
+            $usuario->password = bcrypt($request->password);
+
         }
+
+
 
         $usuario->save();
 
@@ -192,4 +186,24 @@ class UsuarioController extends Controller
                 ->with('error', 'Error al desactivar el cofrade');
         }
     }
+
+    public function activar(Usuario $usuario)
+{
+    try {
+        $nombre = $usuario->name . ' ' . $usuario->Apellidos;
+        
+        $usuario->Activo = 'SI';
+        $usuario->save();
+        
+        return redirect()->route('usuarios.index')
+            ->with('success', "Cofrade {$nombre} activado correctamente");
+            
+    } catch (\Exception $e) {
+        return redirect()->route('usuarios.index')
+            ->with('error', 'Error al activar el cofrade');
+    }
+}
+
+
+
 }
