@@ -140,4 +140,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Botón Volver Flotante -->
+    <a href="javascript:history.back()"
+       class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
+        <i class="fa-solid fa-arrow-left text-lg lg:text-xl"></i>
+    </a>
 </x-app-layout>

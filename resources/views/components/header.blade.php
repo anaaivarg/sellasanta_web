@@ -1,13 +1,19 @@
 <header class="bg-white flex items-center justify-between px-4 h-16 sticky top-0 z-50 shadow-sm">
-    <!-- Logo (siempre visible) -->
-    <div class="flex items-center">
+    <!-- Botón Volver + Logo -->
+    <div class="flex items-center gap-3">
+        <!-- Botón Volver (solo móvil) -->
+        <button onclick="history.back()"
+                class="lg:hidden flex items-center justify-center w-9 h-9 rounded-full bg-moradoprin text-white hover:bg-orange-600 transition-all shadow-md">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+        </button>
+        <!-- Logo -->
         <a href="{{ route('main') }}">
             <img src="{{ asset('images/escudo.jpg') }}" alt="Escudo Cofradía" class="h-12 w-auto">
         </a>
     </div>
 
     <!-- Botón Hamburguesa (solo móvil) -->
-    <button id="menu-toggle" 
+    <button id="menu-toggle"
             class="lg:hidden text-moradoprin hover:text-orange-600 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>

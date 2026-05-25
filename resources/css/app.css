@@ -35,6 +35,11 @@
         color-scheme: light;
     }
 
+    /* Fix position:fixed en iOS Safari */
+    html, body {
+        overflow-x: clip;
+    }
+
     input, textarea, select {
         color: #000000 !important;
     }

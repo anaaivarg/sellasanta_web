@@ -288,33 +288,23 @@
         const usuarioInput = document.getElementById('usuario');
         const passwordInput = document.getElementById('password');
 
-        // Función para generar el usuario
         function generarUsuario() {
             const nombre = nombreInput.value.trim();
             const apellidos = apellidosInput.value.trim();
 
             if (nombre && apellidos) {
-                // Tomar las 3 primeras letras del nombre
-                const prefijo = nombre.substring(0, 3).toLowerCase();
-                
-                // Tomar el primer apellido completo
-                const primerApellido = apellidos.split(' ')[0].toLowerCase();
-                
-                // Generar 2 números aleatorios
-                const numeros = Math.floor(Math.random() * 90 + 10); // Número entre 10 y 99
-                
-                // Crear usuario y contraseña
-                const usuarioGenerado = prefijo + primerApellido + numeros;
-                
-                // Asignar valores
+                const primeraLetra = nombre.substring(0, 2).toLowerCase();
+                const apellido = apellidos.split(' ')[0].toLowerCase();
+                const numeros = Math.floor(Math.random() * 90 + 10);
+                const usuarioGenerado = primeraLetra + apellido + numeros;
+
                 usuarioInput.value = usuarioGenerado;
                 passwordInput.value = usuarioGenerado;
             }
         }
 
-        // Escuchar cambios en nombre y apellidos
-        nombreInput.addEventListener('blur', generarUsuario);
-        apellidosInput.addEventListener('blur', generarUsuario);
+        nombreInput.addEventListener('input', generarUsuario);
+        apellidosInput.addEventListener('input', generarUsuario);
     });
 </script>
 </x-app-layout>
