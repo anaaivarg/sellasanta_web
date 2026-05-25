@@ -61,7 +61,7 @@
                     @endif
 
                     <button type="submit" 
-                            class="w-full lg:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl">
+                            class="w-full lg:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg hover:shadow-xl">
                         {{ __('Iniciar Sesión') }}
                     </button>
                 </div>

@@ -102,7 +102,7 @@
                                         </span>
                                     </div>
                                     <a href="{{ route('asistencias.usuario', $item['usuario']->idUsuario) }}" 
-                                       class="mt-2 inline-flex items-center text-moradoprin hover:text-purple-800 font-semibold text-xs">
+                                       class="mt-2 inline-flex items-center text-moradoprin hover:text-orange-600 font-semibold text-xs">
                                         <i class="fa-solid fa-chart-line mr-1"></i>
                                         Ver historial
                                     </a>
@@ -190,7 +190,7 @@
                                         </td>
                                         <td class="px-6 py-4 text-center">
                                             <a href="{{ route('asistencias.usuario', $item['usuario']->idUsuario) }}" 
-                                               class="inline-flex items-center px-4 py-2 bg-moradoprin text-white rounded-lg hover:bg-purple-800 transition-all text-sm">
+                                               class="inline-flex items-center px-4 py-2 bg-moradoprin text-white rounded-lg hover:bg-orange-600 transition-all text-sm">
                                                 <i class="fa-solid fa-chart-line mr-2"></i>
                                                 Ver Historial
                                             </a>

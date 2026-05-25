@@ -23,7 +23,7 @@
                    required 
                    autofocus 
                    autocomplete="name"
-                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-purple-600 focus:ring-0 bg-white text-black">
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-moradoprin focus:ring-0 bg-white text-black">
             @if($errors->get('name'))
                 <div class="text-red-500 text-sm mt-1">{{ $errors->first('name') }}</div>
             @endif
@@ -36,7 +36,7 @@
                    id="apellidos" 
                    name="apellidos" 
                    value="{{ old('apellidos', $user->Apellidos) }}"
-                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-purple-600 focus:ring-0 bg-white text-black">
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-moradoprin focus:ring-0 bg-white text-black">
             @if($errors->get('apellidos'))
                 <div class="text-red-500 text-sm mt-1">{{ $errors->first('apellidos') }}</div>
             @endif
@@ -51,7 +51,7 @@
                    value="{{ old('email', $user->email) }}" 
                    required 
                    autocomplete="username"
-                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-purple-600 focus:ring-0 bg-white text-black">
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-moradoprin focus:ring-0 bg-white text-black">
             @if($errors->get('email'))
                 <div class="text-red-500 text-sm mt-1">{{ $errors->first('email') }}</div>
             @endif
@@ -61,7 +61,7 @@
                     <p class="text-sm text-gray-800">
                         Tu dirección de email no está verificada.
                         <button form="send-verification" 
-                                class="underline text-sm text-purple-600 hover:text-purple-800 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                                class="underline text-sm text-moradoprin hover:text-orange-600 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-moradoprin">
                             Haz clic aquí para reenviar el email de verificación.
                         </button>
                     </p>
@@ -82,7 +82,7 @@
                    id="telefono" 
                    name="telefono" 
                    value="{{ old('telefono', $user->Telefono) }}"
-                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-purple-600 focus:ring-0 bg-white text-black">
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-moradoprin focus:ring-0 bg-white text-black">
             @if($errors->get('telefono'))
                 <div class="text-red-500 text-sm mt-1">{{ $errors->first('telefono') }}</div>
             @endif
@@ -95,7 +95,7 @@
                    id="direccion" 
                    name="direccion" 
                    value="{{ old('direccion', $user->Direccion) }}"
-                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-purple-600 focus:ring-0 bg-white text-black">
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-moradoprin focus:ring-0 bg-white text-black">
             @if($errors->get('direccion'))
                 <div class="text-red-500 text-sm mt-1">{{ $errors->first('direccion') }}</div>
             @endif

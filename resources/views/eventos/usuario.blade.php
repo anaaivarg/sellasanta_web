@@ -59,7 +59,7 @@
 
     <!-- ✅ Botón Volver Flotante -->
     <a href="{{ route('dashboard') }}" 
-       class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-40">
+       class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
         <i class="fa-solid fa-arrow-left text-xl"></i>
     </a>
 
@@ -105,7 +105,7 @@
 
             <div class="mt-6 flex flex-col gap-2">
                 <button id="btnGenerarQR" onclick="irAGenerarQR()" 
-                    class="hidden w-full bg-moradoprin text-white px-4 py-3 rounded-xl font-semibold hover:bg-purple-800 transition-all text-sm">
+                    class="hidden w-full bg-moradoprin text-white px-4 py-3 rounded-xl font-semibold hover:bg-orange-600 transition-all text-sm">
                     <i class="fa-solid fa-qrcode mr-2"></i> Generar QR
                 </button>
                 

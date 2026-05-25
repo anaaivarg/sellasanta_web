@@ -29,10 +29,10 @@
                 @endphp
 
                 @if($proximoEvento)
-                    <div class="lg:hidden bg-white p-4 rounded-2xl shadow-lg mb-4 border-l-4 border-orange-400">
+                    <div class="lg:hidden bg-white p-4 rounded-2xl shadow-lg mb-4 border-l-4 border-orange-600">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-base font-bold text-gray-900">
-                                <i class="fa-solid fa-calendar-check text-orange-400"></i>
+                                <i class="fa-solid fa-calendar-check text-orange-600"></i>
                                 Próximo Evento
                             </h3>
                             <span class="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-xs font-bold">
@@ -68,7 +68,7 @@
 
                             @if($proximoEvento->Nombre === 'Ensayo' && auth()->user()->Seccion && auth()->user()->Participante === 'SI')
                                 <a href="{{ route('eventos.qr', $proximoEvento->idEvento) }}"
-                                    class="bg-orange-400 hover:bg-orange-500 text-white px-4 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 shadow-md">
+                                    class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 shadow-md">
                                     <i class="fa-solid fa-qrcode text-lg"></i>
                                 </a>
                             @endif
@@ -179,7 +179,7 @@
     <!-- ✅ Botón Volver Flotante (solo para usuarios normales) -->
     @if(!auth()->user()->esAdmin())
         <a href="{{ url('/') }}"
-            class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-40">
+            class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
             <i class="fa-solid fa-home text-lg lg:text-xl"></i>
         </a>
     @endif

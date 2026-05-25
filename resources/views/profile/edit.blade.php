@@ -117,7 +117,7 @@
                     <!-- Botones -->
                     <div class="flex flex-col lg:flex-row gap-2 lg:gap-3 pt-2">
                         <button type="submit" 
-                                class="flex-1 bg-moradoprin hover:bg-purple-800 text-white px-4 py-2.5 rounded-lg font-semibold transition-all text-sm">
+                                class="flex-1 bg-moradoprin hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold transition-all text-sm">
                             <i class="fa-solid fa-save mr-2"></i>
                             Guardar Cambios
                         </button>
@@ -133,7 +133,7 @@
 
     <!-- ✅ Botón Volver Flotante -->
     <a href="{{ route('dashboard') }}" 
-       class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-40">
+       class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
         <i class="fa-solid fa-arrow-left text-xl"></i>
     </a>
 </x-app-layout>

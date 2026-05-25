@@ -1,13 +1,13 @@
 <x-app-layout>
-  <div class="min-h-screen bg-gray-100 p-8">
+  <div class="min-h-screen bg-gray-100 p-4 lg:p-8">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
-      <div class="bg-moradoprin p-8 text-white rounded-t-2xl shadow-xl">
-        <h1 class="text-3xl font-bold mb-2">
+      <div class="bg-moradoprin p-4 lg:p-8 text-white rounded-t-2xl shadow-xl">
+        <h1 class="text-xl lg:text-3xl font-bold mb-1 lg:mb-2">
           <i class="fa-solid fa-chart-line"></i>
           Control de Asistencias
         </h1>
-        <p class="text-white/90">Gestiona y consulta la asistencia a eventos de la cofradía</p>
+        <p class="text-white/90 text-sm lg:text-base">Gestiona y consulta la asistencia a eventos de la cofradía</p>
       </div>
 
       <!-- Estadísticas generales -->
@@ -83,7 +83,7 @@
                   </td>
                   <td class="px-6 py-4 text-center">
                     <a href="{{ route('asistencias.evento', $item['evento']->idEvento) }}"
-                      class="inline-flex items-center px-4 py-2 bg-moradoprin text-white rounded-lg hover:bg-purple-800 transition-all">
+                      class="inline-flex items-center px-4 py-2 bg-moradoprin text-white rounded-lg hover:bg-orange-600 transition-all">
                       <i class="fa-solid fa-eye mr-2"></i>
                       Ver Detalles
                     </a>

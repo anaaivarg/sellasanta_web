@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-gray-100 min-h-screen pb-12">
 
-        <h1 class="text-moradoprin font-bold text-3xl md:text-4xl text-center mb-4 pt-8">Semana Santa</h1>
+        <h1 class="text-moradoprin font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 pt-8">Semana Santa</h1>
          <hr class="border-t-2 border-orange-600 w-24 mx-auto mb-8">
 
         <div class="max-w-5xl mx-auto px-4 space-y-16">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-moradoprin font-bold text-3xl ">Domingo de Ramos</h2>
-                    <h3 class="text-moradoprin  text-l mb-3">Procesión de Palmas</h3>
+                    <h3 class="text-moradoprin  text-lg mb-3">Procesión de Palmas</h3>
                     <hr class="border-t-2 border-orange-600 w-16 mb-4">
                     <p class="text-gray-700 text-justify">
                         Tradicional procesión por las calles del barrio Oliver adyacentes a la parroquia de la
@@ -41,7 +41,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-moradoprin font-bold text-3xl">Lunes Santo</h2>
-                    <h3 class="text-moradoprin  text-l mb-3">Via Crucis en Valdefierro</h3>
+                    <h3 class="text-moradoprin  text-lg mb-3">Via Crucis en Valdefierro</h3>
                     <hr class="border-t-2 border-orange-600 w-16 mb-4">
                     <p class="text-gray-700 text-justify">
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-moradoprin font-bold text-3xl">Miercoles Santo</h2>
-                    <h3 class="text-moradoprin  text-l mb-3">Via Crucis en Oliver</h3>
+                    <h3 class="text-moradoprin  text-lg mb-3">Via Crucis en Oliver</h3>
                     <hr class="border-t-2 border-orange-600 w-16 mb-4">
                     <p class="text-gray-700 text-justify">
                         Procesión establecida en el año 1994, supone un cambio sustanción en la Cofradía. Tradicionalmente y desde su fundación, la Cofradía realizaba el Vía Crucis y la bajada de pasos a San Cayetano en la noche del Jueves Santo. La Asamblea General tomó la decisión de dividir estas procesiones, estableciendo la realización de un Vía Crucis por las calles del barrio Oliver en la noche del Miércoles Santo.
@@ -82,7 +82,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-moradoprin font-bold text-3xl">Jueves Santo</h2>
-                    <h3 class="text-moradoprin  text-l mb-3">Procesión titular</h3>
+                    <h3 class="text-moradoprin  text-lg mb-3">Procesión titular</h3>
                     <hr class="border-t-2 border-orange-600 w-16 mb-4">
                     <p class="text-gray-700 text-justify">
 
@@ -102,7 +102,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-moradoprin font-bold text-3xl">Viernes Santo</h2>
-                    <h3 class="text-moradoprin  text-l mb-3">Santo Entierro</h3>
+                    <h3 class="text-moradoprin  text-lg mb-3">Santo Entierro</h3>
                     <hr class="border-t-2 border-orange-600 w-16 mb-4">
                     <p class="text-gray-700 text-justify">
                         Organizada por la Hermandad de la Sangre de Cristo, es la procesión más completa y larga de toda España. No hay ningún lugar en nuestra geografía que cuente con tantos cofrades unidos y tantos pasos representando la Pasión de Cristo prácticamente en su totalidad.

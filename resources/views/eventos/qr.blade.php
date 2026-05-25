@@ -27,7 +27,7 @@
         </p>
         <a href="{{ $url }}" 
            target="_blank"
-           class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-all">
+           class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 transition-all">
             ✓ Registrar Asistencia
         </a>
         <p class="text-xs text-gray-500 mt-2">

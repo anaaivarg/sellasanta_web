@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="bg-gray-100">
-        <h1 id="origen" class="text-moradoprin font-bold text-3xl md:text-4xl text-center mb-8 pt-6 scroll-mt-20">Orígenes</h1>
+        <h1 id="origen" class="text-moradoprin font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 pt-8 scroll-mt-20">Orígenes</h1>
         <hr class="border-t-2 border-orange-600 w-24 mx-auto mb-8">
         <p class="text-gray-700 text-center font-mono px-4 md:px-16">
             " Así ha nacido nuestra Cofradía: muy humilde. Sobre las pobres pajas de una barriada.
@@ -115,7 +115,7 @@
     <!--Estandartes-->
     <div class="bg-gray-200">
         <div id="estandartes" class="mt-4 pt-2 scroll-mt-20">
-            <h1 class="text-moradoprin font-bold text-3xl md:text-4xl text-center mb-4 mt-10">Estandartes y banderines</h1>
+            <h1 class="text-moradoprin font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 mt-10">Estandartes y banderines</h1>
             <hr class="border-t-2 border-orange-600 w-24 mx-auto mb-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
 
@@ -136,7 +136,7 @@
                     </figure>
                     <div class="card-body flex flex-col flex-grow">
                         <h2 class="card-title justify-center font-bold text-center">Nuestra Señora de la Asunción</h2>
-                        <hr class="bg-orange-600 h-0.5 my-2" />
+                        <hr class="border-t border-orange-600 w-60 my-1 mx-auto">
                         <p class="flex-grow text-justify">El estandarte luce flores bordadas en colores vivos y oro, con un trabajo minucioso que destaca en sus bordes y en la forma ondulada de la parte inferior, rematada con flecos y borlas. En la parte posterior lleva el nombre de la Cofradía y el lema "AÑO MARIANO 1954" como homenaje a la Inmaculada. Fue restaurado por completo en 2016 por Josefina Acerete y Gloria Carnicer.</p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                     </figure>
                     <div class="card-body flex flex-col flex-grow">
                         <h2 class="card-title justify-center font-bold text-center">Banderín Sección de Instrumentos</h2>
-                        <hr class="bg-orange-600 h-0.5 my-2" />
+                        <hr class="border-t border-orange-600 w-60 my-1 mx-auto">
                         <p class="flex-grow text-justify">El estandarte, hecho en raso y bordado en hilo de oro, saldó una deuda pendiente con la Sección de Instrumentos tras no poder confeccionarlo las monjas de Miedes. Fue bendecido el 2 de abril de 2004 y pasó a acompañar a la Sección en concursos, exaltaciones y procesiones. Su creación fue realizada por la cofrade Josefina Acerete, que dedicó gran tiempo y esfuerzo.</p>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
         </div>
 
         <div id="identidad" class="mt-8 pt-6 scroll-mt-20">
-            <h1 class="text-moradoprin font-bold text-3xl md:text-4xl text-center mb-4">Identidad</h1>
+            <h1 class="text-moradoprin font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Identidad</h1>
             <hr class="border-t-2 border-orange-600 w-24 mx-auto mb-8">
             <div class="flex flex-col md:flex-row gap-4 p-4">
 

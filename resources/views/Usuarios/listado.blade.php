@@ -27,7 +27,7 @@
                         <label for="buscador"
                             class="block text-xs lg:text-sm font-semibold text-gray-700 mb-1 lg:mb-2">Buscar</label>
                         <input type="text" placeholder="Buscar por nombre o apellidos..."
-                            class="w-full px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-purple-600 focus:shadow-lg bg-white text-black"
+                            class="w-full px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-moradoprin focus:shadow-lg bg-white text-black"
                             id="buscador">
                     </div>
 
@@ -35,7 +35,7 @@
                         <label for="filtroActivo"
                             class="block text-xs lg:text-sm font-semibold text-gray-700 mb-1 lg:mb-2">Estado</label>
                         <select
-                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-purple-600 bg-white text-black"
+                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-moradoprin bg-white text-black"
                             id="filtroActivo">
                             <option value="">Todos</option>
                             <option value="SI">Activos</option>
@@ -47,7 +47,7 @@
                         <label for="filtroSeccion"
                             class="block text-xs lg:text-sm font-semibold text-gray-700 mb-1 lg:mb-2">Sección</label>
                         <select
-                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-purple-600 bg-white text-black"
+                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-moradoprin bg-white text-black"
                             id="filtroSeccion">
                             <option value="">Todas</option>
                             <option value="2">Tambor</option>
@@ -60,7 +60,7 @@
                         <label for="filtroEdad"
                             class="block text-xs lg:text-sm font-semibold text-gray-700 mb-1 lg:mb-2">Edad</label>
                         <select
-                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-purple-600 bg-white text-black"
+                            class="w-full cursor-pointer px-3 py-2 lg:px-4 lg:py-3 rounded-xl border-2 border-gray-300 text-sm lg:text-base transition-all focus:outline-none focus:border-moradoprin bg-white text-black"
                             id="filtroEdad">
                             <option value="">Todas</option>
                             <option value="infantil">Infantil</option>
@@ -70,7 +70,7 @@
 
                     <div class="w-full sm:w-auto flex items-center gap-2 pt-0 sm:pt-7">
                         <input type="checkbox" id="filtroSoloSeccion"
-                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-purple-600">
+                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-orange-600">
                         <label for="filtroSoloSeccion"
                             class="text-xs lg:text-sm font-semibold text-gray-700 cursor-pointer">
                             Sección de instrumentos
@@ -79,7 +79,7 @@
 
                     <div class="w-full sm:w-auto flex items-center gap-2 pt-0 sm:pt-7">
                         <input type="checkbox" id="filtroAtributo"
-                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-purple-600">
+                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-orange-600">
                         <label for="filtroAtributo"
                             class="text-xs lg:text-sm font-semibold text-gray-700 cursor-pointer">
                             Mostrar Atributos
@@ -88,7 +88,7 @@
 
                     <div class="w-full sm:w-auto flex items-center gap-2 pt-0 sm:pt-7">
                         <input type="checkbox" id="filtroJunta"
-                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-purple-600">
+                            class="w-4 h-4 lg:w-5 lg:h-5 cursor-pointer accent-orange-600">
                         <label for="filtroJunta" class="text-xs lg:text-sm font-semibold text-gray-700 cursor-pointer">
                             Mostrar Junta
                         </label>
@@ -180,7 +180,7 @@
                             <div class="flex gap-2">
                                 <a href="{{ route('usuarios.edit', $usuario) }}" class="flex-1">
                                     <button
-                                        class="w-full bg-blue-600 text-white px-3 py-2 rounded-lg text-xs font-semibold">
+                                        class="w-full bg-blue-600 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-xs font-semibold transition-all">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </button>
                                 </a>
@@ -191,7 +191,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="w-full bg-orange-600 text-white px-3 py-2 rounded-lg text-xs font-semibold">
+                                            class="w-full bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg text-xs font-semibold transition-all">
                                             <i class="fa-solid fa-user-slash"></i> Desactivar
                                         </button>
                                     </form>
@@ -201,7 +201,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit"
-                                            class="w-full bg-green-600 text-white px-3 py-2 rounded-lg text-xs font-semibold">
+                                            class="w-full bg-green-600 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-xs font-semibold transition-all">
                                             <i class="fa-solid fa-user-check"></i> Activar
                                         </button>
                                     </form>
@@ -220,32 +220,32 @@
                 <table class="w-full border-separate border-spacing-0" id="tablaUsuarios">
                     <thead class="bg-moradoprin sticky top-0 z-10">
                         <tr>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('nombre')">
                                 Nombre
                                 <i class="fa-solid fa-sort ml-1" id="icon-nombre"></i>
                             </th>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('apellidos')">
                                 Apellidos
                                 <i class="fa-solid fa-sort ml-1" id="icon-apellidos"></i>
                             </th>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('fechanac')">
                                 F. Nacimiento
                                 <i class="fa-solid fa-sort ml-1" id="icon-fechanac"></i>
                             </th>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('fechaalta')">
                                 F. Alta
                                 <i class="fa-solid fa-sort ml-1" id="icon-fechaalta"></i>
                             </th>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('activo')">
                                 Estado
                                 <i class="fa-solid fa-sort ml-1" id="icon-activo"></i>
                             </th>
-                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-purple-800 transition-colors select-none"
+                            <th class="p-4 text-center text-white font-semibold text-sm uppercase tracking-wider whitespace-nowrap cursor-pointer hover:bg-orange-600 transition-colors select-none"
                                 onclick="ordenarPorColumna('participante')">
                                 Participante
                                 <i class="fa-solid fa-sort ml-1" id="icon-participante"></i>
@@ -337,7 +337,7 @@
 
     <!-- Botón Volver Flotante -->
     <a href="{{ route('dashboard') }}"
-        class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-800 transition-all z-40">
+        class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
         <i class="fa-solid fa-arrow-left text-lg lg:text-xl"></i>
     </a>
 
