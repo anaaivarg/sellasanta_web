@@ -1,59 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  SellaSanta
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Sistema de gestión digital para la cofradía de "La Llegada de Jesús al Calvario y Nuestra Señora del Perdón"**
 
-## About Laravel
+> Proyecto de fin de ciclo — Ciclo Superior de Desarrollo de Aplicaciones Web (DAW) · 2025-2026  
+> Autora: **Ana Aivar Gracia**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Descripción
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+SellaSanta nace de una necesidad real: la cofradía controlaba la asistencia a los ensayos de Semana Santa con sellos en tarjetas de cartón, que con frecuencia se perdían, rompían o acababan en la lavadora, con un coste de 3 € por reposición.
 
-## Learning Laravel
+Esta aplicación web sustituye ese sistema por una plataforma digital que centraliza la gestión de cofrades, eventos y asistencias. Los cofrades generan un código QR personalizado para cada ensayo, el administrador lo escanea y la asistencia queda registrada automáticamente.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+##  Funcionalidades principales
 
-## Laravel Sponsors
+- **Calendario de eventos** — visualización mensual con FullCalendar, con tipos de eventos diferenciados por color (ensayos, misas, procesiones, reuniones, actos)
+- **Registro de asistencia por QR** — cada cofrade genera un código QR encriptado y con caducidad de 24 horas para cada ensayo
+- **Gestión de cofrades** — CRUD completo con validación de DNI, asignación de sección, junta y atributo
+- **Estadísticas de participación** — porcentaje de asistencia por cofrade y por ensayo
+- **Control de acceso por roles** — área pública, área de cofrade autenticado y área de administración (Junta de Gobierno)
+- **Páginas informativas públicas** — inicio, cofradía, noticias, Semana Santa y contacto
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ Tecnologías
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| Capa | Tecnología |
+|---|---|
+| Backend | PHP 8.2 · Laravel 12 · Laravel Breeze |
+| Frontend | Blade · Tailwind CSS 3 · FullCalendar 6 · SweetAlert2 · Font Awesome |
+| Base de datos | MySQL 8.0 |
+| QR | SimpleSoftwareIO/simple-qrcode |
+| Herramientas | PhpStorm · Composer · NPM · GitHub · phpMyAdmin |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Instalación
 
-## Code of Conduct
+### Requisitos previos
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- PHP ≥ 8.2
+- Composer
+- Node.js y NPM
+- MySQL 8.0
 
-## Security Vulnerabilities
+### Pasos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/anaaivarg/sellasanta_web.git
+cd sellasanta_web
 
-## License
+# 2. Instalar dependencias PHP
+composer install
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# 3. Instalar dependencias JavaScript y compilar assets
+npm install && npm run build
+
+# 4. Configurar el entorno
+cp .env.example .env
+php artisan key:generate
+
+# 5. Configurar la base de datos en .env
+# DB_DATABASE=sellasanta
+# DB_USERNAME=tu_usuario
+# DB_PASSWORD=tu_contraseña
+
+# 6. Ejecutar migraciones
+php artisan migrate
+
+# 7. Arrancar el servidor
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`.
+
+---
+
+##  Roles de usuario
+
+| Rol | Acceso | Capacidades |
+|---|---|---|
+| **Público** | Sin login | Páginas informativas (inicio, cofradía, noticias, contacto) |
+| **Cofrade** | Login requerido | Ver calendario, generar QR de asistencia, ver sus estadísticas |
+| **Administrador** | Cargo en Junta (Hermano Mayor, Secretario o Delegado) | Todo lo anterior + CRUD de cofrades, CRUD de eventos, control de asistencias global |
+
+> La distinción entre cofrade y administrador se gestiona mediante el cargo asignado en la Junta de Gobierno, sin necesidad de un campo "rol" adicional.
+
+---
+
+##  Estructura del proyecto
+
+```
+sellasanta_web/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/        # EventoController, UsuarioController, AsistenciaController...
+│   │   └── Middleware/         # AdminMiddleware (control de acceso por cargo)
+│   └── Models/                 # Usuario, Evento, Instrumento, Gobierno, Atributo
+├── database/
+│   └── migrations/             # Estructura de la base de datos
+├── resources/
+│   └── views/                  # Vistas Blade (eventos, asistencias, usuarios, auth...)
+└── routes/
+    └── web.php                 # Definición de rutas y niveles de acceso
+```
+
+---
+
+##  Licencia
+
+Proyecto académico de uso educativo. Todos los derechos reservados © Ana Aivar Gracia, 2025.
