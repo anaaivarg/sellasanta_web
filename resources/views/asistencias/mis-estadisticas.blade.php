@@ -18,7 +18,7 @@
                     $cumpleMínimo = $porcentaje >= 75;
                 @endphp
                 
-                <!-- Tarjetas de estadísticas - 2x2 EN MÓVIL -->
+                <!-- Tarjetas de estadísticas  -->
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
                     <div class="bg-blue-50 p-2 lg:p-4 rounded-lg text-center">
                         <p class="text-xs text-gray-600 mb-1">Total</p>
@@ -132,7 +132,7 @@
         </div>
     </div>
 
-    <!-- ✅ Botón Volver Flotante -->
+   
     <a href="{{ route('dashboard') }}" 
        class="fixed bottom-6 left-6 bg-moradoprin text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
         <i class="fa-solid fa-arrow-left text-xl"></i>
