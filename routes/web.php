@@ -7,6 +7,10 @@ use App\Http\Controllers\UsuarioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\Auth\GoogleAuthController;
+
+Route::get('/auth/redirect', [GoogleAuthController::class, 'redirect'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])->name('google.callback');
 
 Route::view('/', 'main')->name("main");
 Route::view('/cofradia', 'cofradia')->name('cofradia');

@@ -84,7 +84,6 @@
       
     </section>
 
-      <hr class="border-t-2 border-moradoprin mx-8 ">
     <!-- Sección La cofradía -->
     <section class="bg-gray-100 py-10 md:py-16 ">
         <div class="max-w-7xl mx-auto px-4">
@@ -142,7 +141,7 @@
     </section>
 
     <!-- Sección Únete -->
-    <section class="bg-moradoprin py-16 text-white text-center">
+    <section class="bg-moradoprin pt-16 pb-8 text-white text-center">
         <div class="max-w-2xl mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Quieres formar parte de nuestra cofradía?</h2>
             <hr class="border-t border-orange-600 mb-6 w-60 my-1 mx-auto">
@@ -155,9 +154,5 @@
         </div>
     </section>
 
-    <!-- Botón Volver Flotante -->
-    <a href="{{ route('dashboard') }}"
-       class="fixed bottom-6 left-6 bg-moradoprin text-white w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-orange-600 transition-all z-40">
-        <i class="fa-solid fa-arrow-left text-lg lg:text-xl"></i>
-    </a>
+    
 </x-app-layout>

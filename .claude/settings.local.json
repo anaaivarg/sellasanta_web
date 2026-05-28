@@ -4,7 +4,9 @@
       "Bash(grep:*)",
       "Bash(find /c/Users/anaai/sellasanta_web -name \"*.blade.php\" -type f -exec grep -l \"extends\\\\|@extends\" {})",
       "Bash(php artisan:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(composer require *)",
+      "Bash(php -i)"
     ]
   }
 }
